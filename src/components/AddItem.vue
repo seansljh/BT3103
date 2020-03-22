@@ -6,6 +6,12 @@
         <input type="text" v-model.lazy="item.name" required/>
         <label>Item Category</label>
         <input type="text" v-model.lazy="item.category"/>
+        <label> Potential Allergens </label>
+        <input type ="text" v-model.lazy="item.allergens"/>
+        <label> Vegan? </label>
+        <input type = "button" name = "Yes" value = "Yes" v-on:click='is_Vegan()'/>
+        <input type = "button" name = "No" value = "No" v-on:click='is_not_Vegan()'/>
+        <p></p>
         <button v-on:click.prevent="addItem">Add Item</button>
         
     </form>
@@ -22,7 +28,9 @@ export default {
         msg:"Add Item",
         item:{
           name:'',
-          category:''
+          category:'',
+          allergens:'',
+          vegan:''
         },
         
         
@@ -34,9 +42,17 @@ export default {
           database.collection('items').doc().set(this.item);
           this.item.name="";
           this.item.category="";
+          this.item.allergens="";
           alert("I am in the DB .... :-) Item saved successfully")
           
-        }
+        },
+    is_Vegan: function() {
+      this.item.vegan = 'Yes'
+    },
+    is_not_Vegan: function() {
+      this.item.vegan = 'No'
+    }
+    
   }
 }
 </script>
