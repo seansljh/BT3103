@@ -14,6 +14,10 @@
         <div id = "chart">
         <piechart></piechart>
         </div>
+        <div id = "chart">
+        <firebaseBubble></firebaseBubble>
+        </div>
+
     </div>
 </template>
 
@@ -22,10 +26,11 @@ import charts from '../charts.js'
 import doughnut from '../doughnut.js'
 import linechart from '../linechart.js'
 import piechart from '../piechart.js'
+import firebaseBubble from '../firebaseBubble.js'
 
 export default {
     components:{
-        charts,doughnut,linechart,piechart
+        charts,doughnut,linechart,piechart,firebaseBubble
     }
     
 }
